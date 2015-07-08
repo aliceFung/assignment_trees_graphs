@@ -14,7 +14,17 @@ class AdjacencyMatrix
   #    puts person[0][1]
   # end
 
+  def build_matrix
+    @id = Array.new() { Array.new() { } }
+   # id[0] = [4, 8 ,8 7]
+    @edge_list.list.each do |edge|
+      # @edge_list.list.length.times do |i|
+        # @arr[edge[0].id] << edge[2]
+      @id[edge[0].id][edge[1].id]<< edge[2]
+    end
 
+
+  end
 
 
   # def collect_id
