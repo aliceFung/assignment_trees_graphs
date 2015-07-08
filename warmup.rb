@@ -10,31 +10,32 @@ class AdjacencyMatrix
 
 
   def print_matrix
+    print "ID# \t"
     (0..@vertices-1).each do |id|
       print id
       print "\t"
     end
     print "\n"
-
+    count = 0
    @matrix.each do |row|
+    print "#{count} \t"
     row.each do |item|
       item.nil? ? (print "X") : (print item)
       print "\t"
     end
     print "\n"
+    count += 1
    end
   end
 
-  def build_matrix
+  def build_matrix #undirected
     @matrix = Array.new(@vertices)
     (0..@vertices-1).each do |index|
       @matrix[index] = Array.new(@vertices)
     end
-   # id[0] = [4, 8 ,8 7]
     @edge_list.list.each do |edge|
-      # @edge_list.list.length.times do |i|
-        # @arr[edge[0].id] << edge[2]
       @matrix[edge[0].id][edge[1].id] = edge[2]
+      @matrix[edge[1].id][edge[0].id] = edge[2]
     end
   end
 
@@ -49,5 +50,8 @@ class AdjacencyMatrix
     @vertices = @id.length
   end
 
+  def edge_weight(id1, id2)
+    @matrix[id1][id2]
+  end
 
 end
