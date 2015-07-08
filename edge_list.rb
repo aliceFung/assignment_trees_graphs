@@ -1,5 +1,5 @@
 # Creates an Edge List of People
-# e.g. [  [Person1, Person2, weight], 
+# e.g. [  [Person1, Person2, weight],
 #         [Person4, Person8, weight],
 #         ... ]
 
@@ -23,8 +23,8 @@ class EdgeList
 
   def build_people( num_people )
     people = []
-    1.upto( num_people ) do | id |
-      people << self.build_person( id + 100 )
+    num_people.times do | id |
+      people << self.build_person(id)
     end
     people
   end
@@ -51,7 +51,7 @@ class EdgeList
       break if ( rand( 1..no_edge_odds ) / 100.0 ).round(1) == 0
 
       weight = rand( 1..weight_factor )
-      list << pair + [weight] 
+      list << pair + [weight]
     end
 
     list
